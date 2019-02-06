@@ -145,34 +145,38 @@ def railFence(cipher, levelTotal):
         levelString[level] = levelString[level][:len(cipher)]
         
         print(levelString[level])
-    
 
-plainInput = raw_input("Plaintext: ")
                  
 argLength = len(sys.argv)
 if(argLength > 1):
-    cipherType = sys.argv[1].lower()
-    if cipherType == 'caesar':
-        if argLength == 2:
-            # Prints all 26 shifts if no key is entered
-            print('Possible ciphertexts:')
-            for i in range(26):
-                caesarCipher(plainInput, i)
-        elif argLength == 3:
-            print('Ciphertext: ', end='')
-            caesarCipher(plainInput, int(sys.argv[2]))
-    elif cipherType == 'vignere':
-        vigenereCipher(plainInput, sys.argv[2])
-    elif cipherType == 'base64':
-        base64(plainInput)
-    elif cipherType == 'frequency':
-        frequencyAnalysis(plainInput)
-    elif cipherType == 'rail_fence':
-        railFence(plainInput,int(sys.argv[2]))
+    cipherType = sys.argv[1]
+    key = sys.argv[2]
+    plainInput = sys.argv[3]
 else:
-    print('Format: %s, type, [key=optional]')
-    quit()
+    cipherType = raw_input("Enter type of cipher: ").lower()
+    if cipherType == 'caeasar':
+        key = raw_input("Enter key (Enter ? if there isn't one): ").lower()
+    else:
+        key = raw_input("Enter key: ").lower()
+    plainInput = raw_input("Plaintext: ")
+    
+if cipherType == 'caesar':
+    if key == '?':
+        # Prints all 26 shifts if no key is entered
+        print('Possible ciphertexts:')
+        for i in range(26):
+            caesarCipher(plainInput, i)
+    else:
+        print('Ciphertext: ', end='')
+        caesarCipher(plainInput, int(key))
+elif cipherType == 'vigenere':
+    vigenereCipher(plainInput, key)
+elif cipherType == 'base64':
+    base64(plainInput)
+elif cipherType == 'frequency':
+    frequencyAnalysis(plainInput)
+elif cipherType == 'rail_fence':
+    railFence(plainInput,int(key))
     
 
 # multbqncannqenabrhfgacnqogehchetbkkebmsqgkncchebr
-    

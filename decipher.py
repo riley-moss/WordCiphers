@@ -145,26 +145,6 @@ def railFence(cipher, levelTotal):
         levelString[level] = levelString[level][:len(cipher)]
         
         print(levelString[level])
-        
-    
-    #===========================================================================
-    # print('.' * level, end='')
-    # for i in range(level * dotRange, len(cipher), dotRange):
-    #     print(cipher[i], end='')
-    #     print('.' * (2*(levelTotal-level)-3), end='')
-    # print('')
-    # 
-    # dotRange -= level * 2
-    # if dotRange == 0:
-    #     dotRange = int(len(cipher)/levelTotal) - 1
-    #     
-    # if(level * dotRange > len(cipher)):
-    #     print('')
-    # else:
-    #     level += 1
-    #     railFence(cipher, levelTotal, level, dotRange)
-    #===========================================================================
-    
     
 
 plainInput = raw_input("Plaintext: ")
@@ -193,6 +173,6 @@ else:
     print('Format: %s, type, [key=optional]')
     quit()
     
-#multbqncannqenabrhfgacnqogehchetbkkebmsqgkncchebr
-    
+
+# multbqncannqenabrhfgacnqogehchetbkkebmsqgkncchebr
     
